@@ -1,0 +1,632 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Font and Color Setup */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background-color: #1a1a2e;
+    overflow-x: hidden;
+}
+
+/* Button Style */
+.btn {
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(255, 111, 97, 0.4);
+    position: relative; 
+    top: 30px; /* Adjust this value to move the button down */
+
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    background-color: #ff4040;
+}
+
+/* Background Gradient with Animated Blobs */
+body::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 111, 97, 0.7), rgba(26, 26, 46, 0.7));
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+    animation: blob 15s infinite;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.5), rgba(26, 26, 46, 0.5));
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+    animation: blob 18s infinite;
+}
+
+
+/* Landing Section */
+.landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro h1 {
+    font-size: 4rem;
+    background: linear-gradient(90deg, #ff6f61, #ffdd00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200%; /* Expand the background size for shine effect */
+    animation: fadeInScale 1.5s ease-out forwards, shine 2s linear,text-flicker 2s ease-in-out infinite alternate ; /* Added shine */
+    opacity: 0; /* Start invisible */
+}
+
+.intro h2 {
+    font-size: 2rem;
+    background: linear-gradient(90deg, #ff6f61, #ffdd00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200%; /* Expand the background size for shine effect */
+    animation: slideInFromBottom 1s ease-out forwards, shine 2s linear,fadeIn 2s ease,text-flicker 3.5s ease-in-out infinite alternate; /* Added shine */
+    opacity: 0; /* Start invisible */
+    margin-bottom: 10px; /* Space below subtitle */
+}
+
+
+.intro p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeInUp 2s ease 1.5s forwards;
+}
+
+.highlight {
+    color: #ffdd00;
+}
+
+
+
+
+/* Parallax Effect */
+.landing::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    transform: translateY(-50%) scale(1.1);
+    z-index: -1;
+    opacity: 0.5;
+    animation: parallax 10s infinite ease;
+}
+
+
+
+/* Portfolio Section */
+.portfolio {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #1a1a2e;
+    border-top: 2px solid #ff6f61;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #f0f0f0; /* A subtle off-white for a clean, sophisticated look */
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 2px; /* Slightly more spaced-out letters for readability */
+    padding-bottom: 5px;
+    border-bottom: 3px solid #ff6f61; /* Elegant bottom border for emphasis */
+    opacity: 0; /* Start invisible for the animation */
+    transform: translateY(20px); /* Start slightly below */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+.section-title.visible {
+    opacity: 1; /* Show when visible */
+    transform: translateY(0); /* Move to original position */
+}
+
+
+
+/* Project Cards */
+.project-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.project {
+    width: 300px;
+    background-color: #0f0f1e;
+    margin: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 111, 97, 0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 111, 97, 0.5);
+
+}
+
+.project img {
+    width: 100%;
+}
+
+.project-info {
+    padding: 20px;
+    color: #fff;
+}
+
+
+/* Contact Section */
+.contact {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #161625;
+    color: white;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0f0f1e;
+    color: #fff;
+}
+
+.contact-form button {
+    background-color: #ff6f61;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 30px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.contact-form button:hover {
+    transform: translateY(-5px);
+    background-color: #ff4040;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-container {
+        flex-direction: column;
+    }
+
+    .intro h1 {
+        font-size: 3rem;
+    }
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff6f61;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 15px rgba(255, 111, 97, 0.5);
+    animation: profileZoomIn 1.5s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+/* 3D Hover Effect */
+.profile-photo:hover {
+    box-shadow: 
+        0 20px 30px black, /* Enhanced shadow on hover */
+        0 10px 20px rgba(255, 255, 255, 0.5) inset; /* Brighter inner glow on hover */
+    transform: translateY(-5px) scale(1.05); /* Slightly lift and scale the photo */
+}
+
+
+/* Pseudo-element for shine effect */
+.profile-photo::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    opacity: 0.5;
+    transform: scale(1.5); /* Make the shine effect larger */
+    pointer-events: none; /* Prevent interference with mouse events */
+}
+
+
+
+/* To Handle Mobile responsiveness*/
+@media (max-width: 600px) {
+    .profile-photo {
+        width: 150px; /* Smaller size for mobile */
+        height: 150px;
+    }
+}
+
+
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #1a1a2e;
+    color: white;
+    position: relative;
+    bottom: 1;
+    width: 100%;
+}
+
+
+/* Toggle button styling */
+.toggle-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 25px;
+}
+
+.switch-label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem; 
+    color: black;
+    pointer-events: none; 
+    transition: opacity 0.4s; 
+}
+
+/* Positioning for the labels */
+.label-dark {
+    left: 30px; /* Position for the dark label */
+    opacity: 1; /* Show by default */
+   
+}
+
+.label-light {
+    right: 30px; /* Position for the light label */
+    opacity: 0; /* Hidden by default */
+    color: white;
+}
+
+/* Toggle label visibility */
+input:checked ~ .label-dark {
+    opacity: 0; /* Hide dark label when toggled */
+}
+
+input:checked ~ .label-light {
+    opacity: 1; /* Show light label when toggled */
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ff6f61; 
+    transition: background-color 0.4s;
+    border-radius: 50px; 
+}
+
+.slider:before {
+    position: absolute;
+    content: ""; 
+    height: 25px; 
+    width: 25px; 
+    left: 0; 
+    bottom: 0; 
+    background-color: white; 
+    transition: transform 0.4s; 
+    border-radius: 50%; 
+}
+
+input:checked + .slider {
+    background-color: #ff6f61;
+}
+
+input:checked + .slider:before {
+    transform: translateX(45px);
+    
+}
+
+
+/* Toggled background: When checkbox is checked, remove background */
+body.no-background, 
+.portfolio.no-background,
+.contact.no-background {
+    background-color: transparent;
+}
+
+
+
+
+.about-me {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #1a1a2e;
+    border-top: 2px solid #ff6f61;
+}
+
+.about-me .highlight {
+    color: #ff6f61;
+}
+
+
+.skills {
+    padding: 50px 20px;
+    background-color: #161625;
+    text-align: center;
+}
+
+.skill {
+    margin-bottom: 20px;
+}
+
+
+.certifications {
+    padding: 50px 20px;
+    background-color: #161625;
+    text-align: center;
+}
+
+.certifications ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+.achievements {
+    padding: 50px 20px;
+    background-color: #1a1a2e;
+    text-align: center;
+}
+
+.achievements ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+.hobbies {
+    padding: 50px 20px;
+    background-color: #161625;
+    text-align: center;
+}
+
+
+.resume {
+    padding: 50px 20px;
+    background-color: #1a1a2e;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resume .btn {
+    display: inline-block; /* Ensures the button behaves like an inline element */
+    margin-top: 10px;
+    padding: 10px 20px; /* Adjust padding for button size */
+    background-color: #ff6f61;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px; /* Rounded corners */
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Center text inside the button */
+}
+
+.resume .btn:hover {
+    background-color:#ff4040; /* Add hover effect */
+}
+
+
+
+
+
+
+/*==========================================key Frames=================================================*/
+
+
+
+/* Slide In From Bottom Animation */
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(20px); /* Start from below */
+        opacity: 0; /* Start invisible */
+    }
+    100% {
+        transform: translateY(0); /* End at original position */
+        opacity: 1; /* Fade in */
+    }
+}
+
+/* Fade In with Scale Animation */
+@keyframes fadeInScale {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* Slide In from Left Animation */
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Text Flicker Animation */
+@keyframes text-flicker {
+    0% {
+        opacity: 1;
+        filter: blur(0px);
+    }
+    100% {
+        opacity: 0.8;
+        filter: blur(2px);
+    }
+}
+
+
+
+/* Shine Animation with smoother transition */
+@keyframes shine {
+    0% {
+        background-position: -200%;
+    }
+    50% {
+        background-position: 200%;
+    }
+    100% {
+        background-position: -200%; /* Loop back to start */
+    }
+}
+
+/* 3D Rotation Based on Mouse Movement */
+@keyframes profileZoomIn {
+    0% {
+        transform: scale(0.8); /* Scale down at the start */
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1); /* Scale back to normal */
+        opacity: 1;
+    }
+}
+
+/* Blob Animation */
+@keyframes blob {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    50% {
+        transform: scale(1.2) translate(50px, 50px);
+    }
+    100% {
+        transform: scale(1) translate(0, 0);
+    }
+}
+
+@keyframes parallax {
+    0% {
+        transform: translateY(-50%) scale(1.1);
+    }
+    50% {
+        transform: translateY(-45%) scale(1.2);
+    }
+    100% {
+        transform: translateY(-50%) scale(1.1);
+    }
+}
+
+@keyframes titleGlow {
+    0% {
+        text-shadow: 0 0 10px #ff6f61, 0 0 20px #ffdd00, 0 0 30px #ffdd00;
+    }
+    100% {
+        text-shadow: 0 0 20px #ffdd00, 0 0 30px #ffdd00, 0 0 40px #ff6f61;
+    }
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Slide in effect from below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes underlineSlide {
+    0% {
+        width: 0;
+        left: 50%;
+    }
+    100% {
+        width: 100%;
+        left: 0;
+    }
+}
+
+@keyframes titleAnimation {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
