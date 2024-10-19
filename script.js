@@ -25,66 +25,66 @@ document.getElementById("bg-toggle").addEventListener("click", function() {
 });
 
 
- 
-document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll('.section-title');
 
-    const observerOptions = {
-        root: null, // Use the viewport as the container
-        rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% of the element is visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible'); // Add class when in view
+document.addEventListener('DOMContentLoaded', function() {
+    const titles = document.querySelectorAll('.section-title');
+    
+    function handleScroll() {
+        titles.forEach(title => {
+            const rect = title.getBoundingClientRect();
+            
+            // Check if title is in the viewport
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                title.classList.add('visible');
             } else {
-                entry.target.classList.remove('visible'); // Remove class when out of view
+                title.classList.remove('visible');
             }
         });
-    }, observerOptions);
+    }
 
-    sections.forEach(section => {
-        observer.observe(section); // Observe each section
-    });
-    });
-
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Run on page load to check initial position
+});
 
 
-       const profilePhoto = document.querySelector('.profile-photo');
+ 
+
+
+
+
+//        const profilePhoto = document.querySelector('.profile-photo');
     
-        // Function to update the profile photo rotation based on cursor/touch position
-        function updateRotation(event) {
-            // Prevent default behavior for touch events
-            event.preventDefault();
+//         // Function to update the profile photo rotation based on cursor/touch position
+//         function updateRotation(event) {
+//             // Prevent default behavior for touch events
+//             event.preventDefault();
     
-            const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-            const clientY = event.touches ? event.touches[0].clientY : event.clientY;
+//             const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+//             const clientY = event.touches ? event.touches[0].clientY : event.clientY;
     
-            // Get the center of the image
-            const { left, top, width, height } = profilePhoto.getBoundingClientRect();
-            const centerX = left + width / 2;
-            const centerY = top + height / 2;
+//             // Get the center of the image
+//             const { left, top, width, height } = profilePhoto.getBoundingClientRect();
+//             const centerX = left + width / 2;
+//             const centerY = top + height / 2;
     
-            // Calculate the distance from the touch/cursor to the center
-            const deltaX = (clientX - centerX) / 15; // Adjust for sensitivity
-            const deltaY = (clientY - centerY) / 15; // Adjust for sensitivity
+//             // Calculate the distance from the touch/cursor to the center
+//             const deltaX = (clientX - centerX) / 15; // Adjust for sensitivity
+//             const deltaY = (clientY - centerY) / 15; // Adjust for sensitivity
     
-            // Apply the 3D transformation
-            profilePhoto.style.transform = `rotateY(${deltaX}deg) rotateX(${-deltaY}deg)`;
-        }
+//             // Apply the 3D transformation
+//             profilePhoto.style.transform = `rotateY(${deltaX}deg) rotateX(${-deltaY}deg)`;
+//         }
     
-        // Mouse movement event
-        document.addEventListener('mousemove', updateRotation);
+//         // Mouse movement event
+//         document.addEventListener('mousemove', updateRotation);
     
-        // Touch movement event
-        document.addEventListener('touchmove', updateRotation);
+//         // Touch movement event
+//         document.addEventListener('touchmove', updateRotation);
     
-        // Reset rotation on mouse/touch leave
-        profilePhoto.addEventListener('mouseleave', () => {
-            profilePhoto.style.transform = 'rotateY(0deg) rotateX(0deg)';
-        });
-        profilePhoto.addEventListener('touchend', () => {
-            profilePhoto.style.transform = 'rotateY(0deg) rotateX(0deg)';
-        });
+//         // Reset rotation on mouse/touch leave
+//         profilePhoto.addEventListener('mouseleave', () => {
+//             profilePhoto.style.transform = 'rotateY(0deg) rotateX(0deg)';
+//         });
+//         profilePhoto.addEventListener('touchend', () => {
+//             profilePhoto.style.transform = 'rotateY(0deg) rotateX(0deg)';
+//         });
