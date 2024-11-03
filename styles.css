@@ -183,7 +183,7 @@ body::after {
     padding: 50px 20px;
     text-align: center;
     background-color: #1a1a2e;
-    border-top: 2px solid #ff6f61;
+    /*border-top: 2px solid #ff6f61;*/
     position: static;
     overflow: hidden;
 }
@@ -201,14 +201,13 @@ body::after {
 
 
 .project {
-    text-decoration: none;
-    width: 300px; /* Fixed width for consistency */
-    background-color: #0f0f1e;
-    border-radius: 20px;
+    background-color: #1e1e30;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 10px 30px rgba(255, 111, 97, 0.3);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
 }
 
 .project-inner {
@@ -216,13 +215,12 @@ body::after {
     transition: transform 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.project-inner:hover {
-    transform: scale(1.05); /* Scale up on hover */
-}
+
 
 .project:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(255, 111, 97, 0.5);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    /*box-shadow: 0 15px 40px rgba(255, 111, 97, 0.5);*/
 }
 
 
@@ -303,6 +301,7 @@ body::after {
 .profile-photo {
     width: 180px;
     height: 250px;
+    /*clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);*/
     clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
     border: 4px solid #ff6f61;
     box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.4);
@@ -311,16 +310,14 @@ body::after {
 }
 
 .profile-photo:hover {
-    transform: scale(1.05); /* Gently enlarge on hover */
-    box-shadow: 0 0 20px 10px rgba(255, 111, 97, 0.7); /* Add a glowing border effect */
+    transform: scale(1.08); /* Gently enlarge on hover */
+    box-shadow: 20px 20px 20px 10px rgba(255, 111, 97, 0.7); /* Add a glowing border effect */
 }
 
 
 .profile-photo {
     animation: profileZoomIn 1s ease-in-out;
 }
-
-
 
 
 
@@ -453,6 +450,7 @@ body.no-background,
     text-align: center;
     background-color: #1a1a2e;
     border-top: 2px solid #ff6f61;
+    
 }
 
 .about-me .highlight {
@@ -471,21 +469,91 @@ body.no-background,
 }
 
 
+
+
+/* =========================================================Certification Start==================================================*/
+
+
 .certifications {
     padding: 50px 20px;
-    background-color: #161625;
+    background-color: #1a1a2e;
     text-align: center;
+    color: #f0f0f0;
 }
 
-.certifications ul {
-    list-style: none;
-    padding: 0;
+.certifications h2.section-title {
+    color: #ff6f61;
+    font-size: 2em;
+    margin-bottom: 20px;
 }
+
+.certification-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background-color: #1e1e30;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 1.2em;
+    /*color: #ff6f61;*/
+    margin: 0 0 10px;
+}
+
+.card-content a {
+    color: #ff6f61;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.card-content a:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .certification-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+
+/* =========================================================Certification End==================================================*/
 
 
 .achievements {
     padding: 50px 20px;
-    background-color: #1a1a2e;
+    background-color: #161625;
     text-align: center;
 }
 
